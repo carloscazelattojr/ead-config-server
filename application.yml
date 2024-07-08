@@ -1,4 +1,7 @@
 ead:
+  configServer:
+    username: configServer
+    password: 'ead123cs'
   serviceRegistry:
     username: serviceregistry
     password: 'ead123sr'
@@ -9,3 +12,4 @@ eureka:
       defaultZone: 'http://${ead.serviceRegistry.username}:${ead.serviceRegistry.password}@localhost:8761/eureka'
   instance:
     hostname: localhost
+
