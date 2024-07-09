@@ -5,24 +5,25 @@ server:
 
 spring:
   application:
-    name: ead-authuser-service
+    name: ead-course-service
   datasource:
-    url: jdbc:postgresql://localhost:5432/ead-authuser-v2
-    username: root
-    password: root
+    url:  jdbc:postgresql://localhost:5432/ead-course-v2
+    username: postgres
+    password: banco123
   jpa:
     hibernate:
       ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      jdbc:
+        lob.non-contextual-creation: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         show_sql: true
   output:
     ansi:
-      enabled: always
+      enabled: Always
   rabbitmq:
     addresses: amqps://inakicxl:1HcOjdl5xIKSdMsXCO-nqAjrZ_p6PIJt@crow.rmq.cloudamqp.com/inakicxl
-
 
 logging:
   level:
@@ -65,27 +66,4 @@ resilience4j:
     instances:
       myRetry:
         maxAttempts: 3
-        waitDuration: 5s
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-          - refresh
-          - health
-
-resilience4j:
-  circuitbreaker:
-    instances:
-      circuitbreakerInstance:
-        slidingWindowSize: 30
-        permittedNumberOfCallsInHalfOpenState: 2
-        slidingWindowType: TIME_BASED
-        minimumNumberOfCalls: 2
-        waitDurationInOpenState: 30s
-        failureRateThreshold: 80
-  retry:
-    instances:
-      retryInstance:
-        maxRetryAttempts: 3
         waitDuration: 5s

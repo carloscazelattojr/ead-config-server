@@ -13,13 +13,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+      jdbc:
+        lob.non-contextual-creation: true
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
         show_sql: true
   output:
     ansi:
-      enabled: always
+      enabled: Always
   rabbitmq:
     addresses: amqps://inakicxl:1HcOjdl5xIKSdMsXCO-nqAjrZ_p6PIJt@crow.rmq.cloudamqp.com/inakicxl
 
@@ -30,8 +32,6 @@ management:
         include:
           - refresh
           - health
-
-
 
 ead:
   api:
@@ -46,11 +46,3 @@ ead:
         name: ead.userevent.ms.course
     key:
       notificationCommandKey: ms.notification
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-          - refresh
-          - health
