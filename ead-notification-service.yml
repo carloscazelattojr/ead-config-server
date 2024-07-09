@@ -12,7 +12,6 @@ spring:
     config:
       discovery:
         service-id: ead-config-server
-
   datasource:
     url: jdbc:postgresql://localhost:5432/ead-notification-v2
     username: root
@@ -36,15 +35,7 @@ logging:
     root: INFO
     org.springframework.web: DEBUG
     org.hibernate: INFO
-
-ead:
-  configServer:
-    username: configServer
-    password: 'ead123cs'
-  serviceRegistry:
-    username: serviceregistry
-    password: 'ead123sr'
-
+ 
 eureka:
   client:
     service-url:
@@ -70,3 +61,9 @@ ead:
         name: ead.notificationcommand.ms.notification
     key:
       notificationCommandKey: ms.notification
+  configServer:
+    username: configServer
+    password: 'ead123cs'
+  serviceRegistry:
+    username: serviceregistry
+    password: 'ead123sr'
