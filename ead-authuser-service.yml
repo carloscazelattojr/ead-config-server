@@ -5,9 +5,9 @@ server:
 
 spring:
   application:
-    name: ead-course-service
+    name: ead-authuser-service
   datasource:
-    url:  jdbc:postgresql://localhost:5432/ead-course-v2
+    url:  jdbc:postgresql://localhost:5432/ead-authuser-v2
     username: postgres
     password: banco123
   jpa:
